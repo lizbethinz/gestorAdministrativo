@@ -1,0 +1,53 @@
+<app-menu></app-menu>
+<h3 style="font-weight: bold; font-family: bookantiqua; color:green">Módulo de categorìas</h3>
+
+        
+    <hr style="color: greenyellow;" />
+
+ 
+      <div class="col-sm-6">
+        &nbsp;&nbsp;<button  class="btn btn-info" type="button" (click)="nuevaCateg()">Nueva Categoría</button>&nbsp;
+        <br>
+      </div>
+      <div class="form-group col-sm-6">
+        &nbsp;&nbsp;<label for="buscar" style="font-weight: bold; width: 300px;">Búsqueda:&nbsp;<button  class="btn btn-default" type="button" (click)="buscarCategorias()">Buscar</button></label>&nbsp;
+        &nbsp;&nbsp;<input [(ngModel)]="busqueda"  type="text" class="form-control" id="buscar" name="buscar">&nbsp;
+        
+        
+      </div>
+   
+   
+<br>
+<br>
+
+
+  <table class="table table-striped table-bordered"  > 
+    <thead> 
+     <tr> 
+      <th>Id</th> 
+      <th>Nombre</th> 
+      <th style="align-items: center;text-align: center;">Imagen</th> 
+      <th  *ngIf="rol === '1'|| rol === '2'">Borrar</th> 
+      <th  *ngIf="rol === '1'|| rol === '2'">Editar</th> 
+     </tr> 
+    </thead> 
+    <tbody> 
+     <tr *ngFor="let cat of data; let i = index"> 
+      <td> 
+        {{cat.id}}
+      </td> 
+      <td> 
+        {{cat.nombre}}
+      </td> 
+      <td style="align-items: center;text-align: center;"> 
+        <img src="http://localhost/Agricola/{{cat.imagen}}" alt="" style="height: 120px;">
+      </td> 
+      <td *ngIf="rol === '1'|| rol === '2'"> 
+       <button class="btn btn-danger" type="button" (click)="eliminarCat(cat.id)" >Borrar</button> 
+      </td> 
+      <td *ngIf="rol === '1'|| rol === '2'"> 
+        <button class="btn btn-success" type="button" (click)="editarCat(cat.id)"  >Editar</button> 
+       </td> 
+     </tr> 
+ 
+

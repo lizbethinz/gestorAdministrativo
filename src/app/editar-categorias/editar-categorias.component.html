@@ -1,0 +1,40 @@
+<app-menu></app-menu>
+<form action="">
+    <div style="width: 600px;text-align: center; margin-left: 25%; margin-right: 25%;">
+       
+       
+        <h3 style="font-weight: bold; font-family: bookantiqua; color:green">Editar categoría</h3>
+        
+    <hr style="color: greenyellow;" />
+        <div class="form-group">
+            <label for="id" style="font-weight: bold;">Id:</label>
+            <input [(ngModel)]="categoria.id"  type="text" class="form-control" id="id" name="id" disabled>
+        </div>
+        <div class="form-group">
+            <label for="nombre" style="font-weight: bold;">Nombre:</label>
+            <input [(ngModel)]="categoria.nombre"  type="text" class="form-control" id="nombre" name="nombre">
+          </div>
+          <div class="form-group">
+            <label for="imagen">Subir Imagen:</label>
+            <input type="file" id="imagen" name="imagen" (change)="cargandoImagen($event.target.files)" multiple ><!-- multiple -->
+          </div>
+          <div class="form-group" >
+            <img src="{{Nombreimagen}}" alt="" style="height: 300px;">
+          </div>
+        
+        
+          <div class="row">
+            <div class="col-sm-12 text-right">
+                <button type="submit" class="btn btn-default" (click)="volver()"  >Volver</button> &nbsp;
+                <button type="submit" class="btn btn-success" (click)="editarCategoria()"  >Guardar</button>
+            </div>
+    
+          </div>
+      
+          
+    </div>
+   
+</form>
+   
+ 
+ 
